@@ -5,7 +5,9 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: localhost:9092
+          zkNodes: 172.28.7.35:2181
+          brokers: 172.28.7.35:9092
+          autoCreateTopics: true
       bindings:
         input:
           group: group1
