@@ -19,7 +19,10 @@ public class ManuallyAcknowdledgingConsumer {
 
     @StreamListener(Sink.INPUT)
     public void process(Message<?> message) {
+
         Acknowledgment acknowledgment = message.getHeaders().get(KafkaHeaders.ACKNOWLEDGMENT, Acknowledgment.class);
+        System.out.println("Inside Sbscriber 3  acknowledgment="+acknowledgment);
+        System.out.println("Inside Sbscriber 3  message = "+message);
         if (acknowledgment != null) {
             System.out.println("Acknowledgment provided");
             acknowledgment.acknowledge();
