@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.messaging.Message;
 
 @EnableBinding(Sink.class)
 @SpringBootApplication
@@ -18,13 +19,13 @@ public class RunDemo3SubscriberSameGroup {
 	//@SendTo(Processor.OUTPUT)
 	@StreamListener(target=Sink.INPUT, condition="headers['speed'] > 40")
 	//@StreamListener(target=Sink.INPUT)
-	public void logfast(String msg) {
+	public void logfast(Message<?> msg) {
 		System.out.println("fast = " + msg);
 		//return msg;
 	}
 	
 	@StreamListener(target=Sink.INPUT, condition="headers['speed'] <= 40")
-	public void logslow(String msg) {
+	public void logslow(Message<?> msg) {
 		System.out.println("slow = " + msg);
 		//return msg;
 	}

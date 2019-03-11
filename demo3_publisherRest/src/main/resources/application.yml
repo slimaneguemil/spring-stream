@@ -1,0 +1,40 @@
+server:
+  port: 8082
+management.security.enabled: false
+spring.security.enabled: false
+
+security:
+  basic:
+    enabled: false
+#rabbitmq settings for spring cloud stream
+
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      kafka:
+        binder:
+          headers: speed
+      bindings:
+        fastpasstollchannel:
+          destination: fastpasstoll
+          producer:
+            partitionKeyExpression: payload.stationId
+      default:
+        contentType: application/json
+
+
+
+#---
+#spring:
+#  profiles: rabbit
+#  rabbitmq:
+#  host: 127.0.0.1
+#  port: 5672
+#  username: guest
+
+#  password: guest

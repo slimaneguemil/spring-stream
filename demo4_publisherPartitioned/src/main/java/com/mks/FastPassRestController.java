@@ -21,7 +21,12 @@ public class FastPassRestController {
 		System.out.println(payload);
 		
 		Random r = new Random();
-		mysource.fastpassToll().send(MessageBuilder.withPayload(payload).setHeader("speed", r.nextInt(8) * 10).build());
+		mysource.fastpassToll().send(
+				MessageBuilder
+						.withPayload(payload)
+						.setHeader("speed", r.nextInt(8) * 10)
+						.build()
+		);
 		
 		return "success";
 	}

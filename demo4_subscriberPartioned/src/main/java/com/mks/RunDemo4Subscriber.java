@@ -28,4 +28,5 @@ public class RunDemo4Subscriber {
 		System.out.println("slow = " + msg);
 		//return msg;
 	}
+
 }
