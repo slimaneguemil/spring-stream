@@ -1,0 +1,1 @@
+https://karengryg.io/2018/07/22/spring-cloud-stream-apache-kafkapollablemessagesource/
